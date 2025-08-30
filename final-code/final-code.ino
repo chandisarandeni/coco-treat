@@ -90,7 +90,7 @@ void moveUpIndicator() {
 }
 
 void moveDownIndicator() {
-  digitalWrite(movementIndicator, HIGH);  // can be changed later if needed
+  digitalWrite(movementIndicator, HIGH);
 }
 
 void pumpIndicatorOn() {
@@ -105,8 +105,8 @@ void allIndicatorsOff() {
 // ------------------ MOTOR MOVEMENT Functions ------------------
 
 void moveUp() {
-  digitalWrite(ena, HIGH);  // Enable left motor
-  digitalWrite(enb, HIGH);  // Enable right motor
+  digitalWrite(ena, HIGH);
+  digitalWrite(enb, HIGH);
 
   digitalWrite(in1, HIGH);
   digitalWrite(in2, LOW);
