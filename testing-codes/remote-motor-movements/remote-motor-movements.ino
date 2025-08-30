@@ -2,6 +2,7 @@
 #define moveUp 7
 #define moveDown 6
 #define sprayCommand 5
+#define sprayer 4
 
 // ----------- Motor Driver Pins -----------
 #define enb 13
@@ -16,6 +17,7 @@ void setup() {
   pinMode(moveUp, INPUT_PULLUP);
   pinMode(moveDown, INPUT_PULLUP);
   pinMode(sprayCommand, INPUT_PULLUP);
+  pinMode(sprayer, OUTPUT);
 
   // Motor pins
   pinMode(ena, OUTPUT);
@@ -65,17 +67,18 @@ void loop() {
 
   if (upState == LOW) {
     moveForward();
-  } 
-  else if (downState == LOW) {
+  } else if (downState == LOW) {
     moveBackward();
-  } 
-  else {
+  } else {
     stopMotors();  // stop if nothing pressed
   }
 
   if (sprayState == LOW) {
+    digitalWrite(sprayer, HIGH);
     Serial.println("Spray Command");
+  } else {
+    digitalWrite(sprayer, LOW);
   }
 
-  delay(200); // debounce
+  delay(200);  // debounce
 }
