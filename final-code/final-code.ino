@@ -15,6 +15,9 @@
 #define in1 9
 #define ena 8
 
+//  -- PUMP PINS
+#define sprayer 4
+
 int lastUpState = HIGH;
 int lastDownState = HIGH;
 int lastSprayState = HIGH;
@@ -37,6 +40,9 @@ void setup() {
   // SIGNAL INDICATORS IO STATE
   pinMode(movementIndicator, OUTPUT);
   pinMode(pumpIndicator, OUTPUT);
+
+  // PUMP pin IO STATE
+  pinMode(sprayer, OUTPUT);
 
   // --- ROBOT init STATE
   allIndicatorsOff();
@@ -67,15 +73,13 @@ void loop() {
   }
 
   // --- Spray button toggle
-  if (sprayState == LOW && lastSprayState == HIGH) {
-    sprayOn = !sprayOn;
-    if (sprayOn) {
-      pumpIndicatorOn();
-      Serial.println("Spray ON");
-    } else {
-      digitalWrite(pumpIndicator, LOW);
-      Serial.println("Spray OFF");
-    }
+  if (sprayState == LOW) {
+    pumpOn();
+    pumpIndicatorOn();
+    Serial.println("Spray Command");
+  } else {
+    allIndicatorsOff();
+    pumpOff();
   }
 
   // remember last states
@@ -132,4 +136,13 @@ void stopMotors() {
   digitalWrite(in2, LOW);
   digitalWrite(in3, LOW);
   digitalWrite(in4, LOW);
+}
+
+// ------------------ PUMP Functions ------------------
+void pumpOn() {
+  digitalWrite(sprayer, HIGH);
+}
+
+void pumpOff() {
+  digitalWrite(sprayer, LOW);
 }
