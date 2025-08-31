@@ -68,7 +68,7 @@ This project is an **Arduino-based control system** for a simple robot with:
 ## 🔧 Setup Instructions
 1. Clone this repository:
    ```bash
-   git clone https://github.com/<your-username>/Arduino-Motor-Spray-Control.git
+   git clone https://github.com/chandisarandeni/coco-treat.git
 2. Open `MotorSprayControl.ino` in the Arduino IDE.
 3. Select your Arduino board and COM port.
 4. Upload the code.
