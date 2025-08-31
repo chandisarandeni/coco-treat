@@ -69,7 +69,7 @@ This project is an **Arduino-based control system** for a simple robot with:
 1. Clone this repository:
    ```bash
    git clone https://github.com/chandisarandeni/coco-treat.git
-2. Open `MotorSprayControl.ino` in the Arduino IDE.
+2. Open `final-code.ino` in the Arduino IDE.
 3. Select your Arduino board and COM port.
 4. Upload the code.
 5. Open **Serial Monitor** at `9600 baud` to view debug messages.
